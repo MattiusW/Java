@@ -45,5 +45,13 @@ class FirstFile
         {
             System.out.println(ex.getMessage()); //Catch exception
         }
+        //Check path, system and java
+        System.out.println(System.getProperty("user.dir"));
+        System.out.println(System.getProperty("user.home"));
+        System.out.println(System.getProperty("os.name"));
+        System.out.println(System.getProperty("os.version"));
+        System.out.println(System.getProperty("os.arch"));
+        System.out.println(System.getProperty("java.home"));
+
     }
 }
