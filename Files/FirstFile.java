@@ -52,6 +52,6 @@ class FirstFile
         System.out.println(System.getProperty("os.version"));
         System.out.println(System.getProperty("os.arch"));
         System.out.println(System.getProperty("java.home"));
-
+        System.out.println(System.getProperty("java.version"));
     }
 }
