@@ -32,7 +32,7 @@ class BubbleSortOne
         int pass = 1;
         for (int i = 0; i < tab.length - 1; i++)
         {
-            for (int j = 0; j < tab.length - 1; j++)
+            for (int j = 0; j < tab.length - 1 - i; j++) //Loop optimization
             {   
                 int temp;
                 if (tab[j] > tab[j + 1])
