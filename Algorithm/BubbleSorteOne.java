@@ -1,5 +1,6 @@
 package Algorithm;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 class BubbleSortOne
@@ -8,11 +9,22 @@ class BubbleSortOne
     {   
         Scanner scan = new Scanner(System.in);
         System.out.print("Take table length: ");
-        int howLong = scan.nextInt();
-        int table[] = dynamicTable(howLong);
         
-        System.out.println("Before - " + Arrays.toString(table));
-        System.out.println("Sorted - " + Arrays.toString(BubbleSort(table)));
+        try
+        {
+            int howLong = scan.nextInt();
+            int table[] = dynamicTable(howLong);
+            System.out.println("Before - " + Arrays.toString(table));
+            System.out.println("Sorted - " + Arrays.toString(BubbleSort(table)));
+        }
+        catch(NegativeArraySizeException l)
+        {
+            System.err.println("Wrong size!");
+        }
+        catch(InputMismatchException input)
+        {
+            System.err.println("Wrong inupt!");
+        }
     }
 
     private static int[] BubbleSort(int tab[])
@@ -36,25 +48,15 @@ class BubbleSortOne
         return tab;
     }
 
-    public static int[] dynamicTable(int sizeTable)
+    private static int[] dynamicTable(int sizeTable)
     {   
-        int tableWrong[] = {0};
         int tab[] = new int[sizeTable];
-        
-        if (sizeTable > 0)
-        {
-            for (int i = 0; i < sizeTable; i++)
-            {   
-                Scanner scan = new Scanner(System.in);
-                int numbers = scan.nextInt();
-                tab[i] = numbers;     
-            }
-            return tab;
+        for (int i = 0; i < sizeTable; i++)
+        {   
+            Scanner scan = new Scanner(System.in);
+            int numbers = scan.nextInt();
+            tab[i] = numbers;     
         }
-        else
-        {
-            System.out.println("Wrong!");
-            return tableWrong;
-        }
+        return tab;
     }
 }
