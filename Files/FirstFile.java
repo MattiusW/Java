@@ -8,7 +8,22 @@ class FirstFile
     public static void main(String[] args)
     {
         try
-        {
+        {   
+            //Create folder
+            File folder = new File("Test_folder"); 
+            folder.mkdir();
+            System.out.println("Is directory?: " + folder.isDirectory());
+            folder.delete();
+            //Create several folders
+            File folders = new File("TestOne" + File.separator + "TestTwo" + File.separator + "TestThree");
+            folders.mkdirs();
+            //Create file in folders
+            File text = new File("TestOne" + File.separator + "TestTwo" + File.separator + "TestThree", "Create.txt");
+            if (!text.exists())
+            {
+                text.createNewFile();
+            }
+            //Create file
             File sample = new File("Test.txt"); //Default path
             if (!sample.exists()) //Check file exists if not then create
             {
@@ -23,6 +38,8 @@ class FirstFile
             System.out.println("5.Is file?: " + sample.isFile());
             System.out.println("6.Last modification?: " + new Date(sample.lastModified()));
             System.out.println("7.How many characters?: " + sample.length());
+
+            //sample.delete();
         }
         catch (IOException ex)
         {
