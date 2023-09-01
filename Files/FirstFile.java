@@ -39,6 +39,11 @@ class FirstFile
             System.out.println("6.Last modification?: " + new Date(sample.lastModified()));
             System.out.println("7.How many characters?: " + sample.length());
 
+            //Get path
+            System.out.println("Get path: " + sample.getPath());
+            System.out.println("Get canonical path: " + sample.getCanonicalPath()); //Better use path
+            System.out.println("Get absoulte path: " + sample.getAbsolutePath());
+
             //sample.delete();
         }
         catch (IOException ex)
@@ -53,5 +58,25 @@ class FirstFile
         System.out.println(System.getProperty("os.arch"));
         System.out.println(System.getProperty("java.home"));
         System.out.println(System.getProperty("java.version"));
+ 
+        FirstFile.getAllPath(new File(System.getProperty("user.dir")));
+    }
+
+    //Method return all path
+    public static void getAllPath(File pathName)
+    {
+        String[] nameOfFolderAndFile = pathName.list();
+        System.out.println(pathName.getPath());
+
+        for (int i = 0; i < nameOfFolderAndFile.length; i++)
+        {
+            File f = new File(pathName.getPath(), nameOfFolderAndFile[i]);
+            System.out.println(f.getPath());
+
+            if (f.isDirectory()) //Enter to directory
+            {
+                getAllPath(new File(f.getPath()));
+            }
+        }
     }
 }
