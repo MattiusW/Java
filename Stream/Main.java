@@ -9,11 +9,13 @@ class Main
         InputStream inS;
         OutputStream outS;
 
+        File text = new File("TestStream.txt");
         Reader reader;
-        Writer writer = new FileWriter("TestStream.txt"); //Create file
+        BufferedWriter writer = new BufferedWriter(new FileWriter(text)); //Create file
 
         writer.write("Hi my name is Mateusz!"); //Write file
-
+        writer.newLine();
+        writer.write("Buffered Writer is fast then usually writer");
         writer.close(); //Close file
     }
 }

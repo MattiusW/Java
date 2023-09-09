@@ -1,1 +1,2 @@
 Hi my name is Mateusz!
+Buffered Writer is fast then usually writer
