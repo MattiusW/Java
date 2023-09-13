@@ -1,8 +1,8 @@
 package Stream;
-import java.time.Year;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.io.*;
 
 class Article
 {
@@ -52,6 +52,32 @@ class Article
         this.name = name;
         GregorianCalendar calendary = new GregorianCalendar(y, m - 1, d);
         this.releaseDate = calendary.getTime();
+    }
+
+    public static void saveToFile(Article[] article, PrintWriter outS)
+    {
+        outS.println(article.length);
+        GregorianCalendar calendary = new GregorianCalendar();
+        for (int i = 0; i < article.length; i++)
+        {   
+            calendary.setTime(article[i].getDate());
+            outS.println(article[i].getPrice() + "|" + article[i].getName() 
+                + "|" + calendary.get(calendary.YEAR) + "|" + calendary.get((calendary.MONTH) + 1) 
+                + "|" + calendary.get(calendary.DAY_OF_MONTH) + "|");
+        }
+    }
+
+    public static Article[] readForFile(BufferedReader inS) throws IOException
+    {
+        int len = Integer.parseInt(inS.readLine());
+        Article[] goods = new Article[len];
+
+        for (int i = 0; i < len; i++)
+        {
+            goods[i] = new Article();
+        }
+
+        return goods;
     }
 
     @Override
