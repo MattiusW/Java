@@ -5,7 +5,12 @@ import java.io.*;
 class Main
 {
     public static void main(String[] args) throws IOException
-    {
+    {   
+        //Token
+        Article good = new Article(200, "BG3", 2023, 11, 7);
+        System.out.println(good);
+
+        //Write and read
         InputStream inS;
         OutputStream outS;
 
