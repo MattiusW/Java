@@ -1,5 +1,4 @@
 package Stream;
-
 import java.io.*;
 
 class Main

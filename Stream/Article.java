@@ -3,6 +3,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.io.*;
+import java.util.StringTokenizer;
 
 class Article
 {
@@ -73,8 +74,17 @@ class Article
         Article[] goods = new Article[len];
 
         for (int i = 0; i < len; i++)
-        {
-            goods[i] = new Article();
+        {   
+            String line = inS.readLine();
+            StringTokenizer tokens = new StringTokenizer(line, "|"); //Catch tokens
+            tokens.nextToken();
+            double price = Double.parseDouble(tokens.nextToken()); //Parse to double
+            String name = tokens.nextToken();
+            int y = Integer.parseInt(tokens.nextToken());
+            int m = Integer.parseInt(tokens.nextToken());
+            int d = Integer.parseInt(tokens.nextToken()); 
+            
+            goods[i] = new Article(price, name, y, m , d);
         }
 
         return goods;
