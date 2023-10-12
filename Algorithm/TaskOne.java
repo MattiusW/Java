@@ -2,7 +2,7 @@ package Algorithm;
 
 class TaskOne{
     public static void main(String[] args){
-        String example = "Hello World!";
+        String example = "Hello World";
         String reserved = reservedWord(example);
         System.out.println(reserved);
     }
