@@ -10,5 +10,8 @@ class Main{
         System.out.println("Tab: " + Arrays.toString(tab) + " Fibonacci: " + fib);
         int factorial = Factorial.factorialAmount(5);
         System.out.println("Factorial: " + factorial);
+        int[] table = {1,2,3,4,5};
+        TotalTwoNumber.pairs(table, 4);
+
     }
 }
