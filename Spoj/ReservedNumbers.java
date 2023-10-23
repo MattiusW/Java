@@ -1,3 +1,5 @@
+package Spoj;
+
 import java.util.Scanner;
 import java.util.Arrays;
 
