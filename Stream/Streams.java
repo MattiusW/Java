@@ -12,6 +12,7 @@ class Streams{
         persons.stream().filter(o -> o.getAge() >= 18).forEach(p -> System.out.println(p.getName()));
         System.out.println(IntStream.range(1,10).average());
         IntStream.range(1,8).filter(l -> l % 2 == 0).forEach(n -> System.out.println(n));
+        printList(persons);
     }
     
     public static List<Person> getPersonList(){
@@ -21,6 +22,10 @@ class Streams{
         result.add(new Person("Mahda", 31));
         result.add(new Person("Nikita", 17));
         return result;
+    }
+
+    private static void printList(List<Person> list){
+        list.stream().forEach(p -> System.out.println(p.getName() + " | " + p.getAge()));
     }
 
 }
