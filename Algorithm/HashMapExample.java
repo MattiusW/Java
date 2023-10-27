@@ -17,17 +17,4 @@ public class HashMapExample {
         System.out.println(hashMapOne.get(1));
 
     }
-
-    public static Map<Integer, String> hashMapMethod(){
-    
-        Map<Integer, String> hashMapTwo = new HashMap<Integer, String>(); 
-
-        hashMapTwo.put(5, "Five");
-        hashMapTwo.put(6, "Six");
-        hashMapTwo.put(7, "Seven");
-        hashMapTwo.put(8, "Eight");
-        hashMapTwo.put(9, "Nine");
-
-        return hashMapTwo;
-    }
 }
