@@ -15,6 +15,14 @@ public class HashMapExample {
         hashMapOne.put(5, "Five");
 
         System.out.println(hashMapOne.get(1));
+        System.out.println(hashMapOne.putIfAbsent(1, "Six"));
+        System.out.println(hashMapOne.isEmpty());
+        System.out.println(hashMapOne.size());
+        System.out.println(hashMapOne.keySet()); //Show keys in hashMap
+        System.out.println(hashMapOne.values()); //Show values in hashMap
+        
+        hashMapOne.keySet().forEach(System.out::println); //Keys for each
+        hashMapOne.values().forEach(System.out::println); //Values for each
 
     }
 }
