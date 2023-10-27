@@ -23,6 +23,10 @@ public class ArrayListAlgo {
 
         System.out.println(example);
 
+        example.add("Five"); //Duplicate
+
+        System.out.println(example);
+
     }
 
 }
