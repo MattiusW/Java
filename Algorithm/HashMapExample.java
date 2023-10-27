@@ -24,5 +24,10 @@ public class HashMapExample {
         hashMapOne.keySet().forEach(System.out::println); //Keys for each
         hashMapOne.values().forEach(System.out::println); //Values for each
 
+        System.out.println(hashMapOne.entrySet()); //Show key, value
+
+        //Stream in HashMap
+        hashMapOne.entrySet().forEach(e -> System.out.print(" Key: " + e.getKey() + " Value: " + e.getValue()));
+
     }
 }
