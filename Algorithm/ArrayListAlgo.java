@@ -1,6 +1,7 @@
 package Algorithm;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ArrayListAlgo {
@@ -23,10 +24,26 @@ public class ArrayListAlgo {
 
         System.out.println(example);
 
-        example.add("Five"); //Duplicate
+        example.add("Three"); //Duplicate
 
         System.out.println(example);
 
+        example.remove("Three"); //Remove first find element
+
+        System.out.println(example);
+
+        System.out.println(example.contains("Five"));
+        System.out.println(example.contains("Six"));
+        System.out.println(example.isEmpty());
+        System.out.println(example.size());
+
+        Collections.sort(example); 
+
+        System.out.println(example);
+
+        example.clear();
+        System.out.println(example.isEmpty());
+        System.out.println(example.size());
     }
 
 }
