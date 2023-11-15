@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class MovedZero {
     
     public static void main(String[] args){
-        int[] num = {0,1,0,3,12};
+        int[] num = {-1,-2,0,1,0,3,12};
         moveZeroes(num);
         System.out.println(Arrays.toString(num));
     }
