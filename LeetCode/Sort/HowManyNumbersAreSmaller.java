@@ -8,6 +8,8 @@ public class HowManyNumbersAreSmaller {
     
     public static void main(String[] args){
         int nums[] = {8,1,2,2,3};
+        int[] tab = smallerNumbersThanCurrentNextVersion(nums);
+        System.out.println(Arrays.toString(tab));
         int[] small = smallerNumbersThanCurrent(nums);
         System.out.println(Arrays.toString(small));
     }
@@ -29,4 +31,23 @@ public class HowManyNumbersAreSmaller {
         return smaller;
     }
 
+    public static int[] smallerNumbersThanCurrentNextVersion(int[] nums){
+        int[] table = new int[nums.length];
+        int count = 0;
+        int check = 0;
+        int length = nums.length - 1;
+
+        while(check <= length){
+
+            for(int i = 0; i <= length; i++){
+                if(nums[check] > nums[i]){
+                    count++;
+                }
+            }
+            table[check] = count;
+            count = 0;
+            check++;
+        }
+        return table;
+    }
 }
