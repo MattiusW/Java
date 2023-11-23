@@ -16,15 +16,19 @@ public class NumberOfWordsFound{
         for(int i = 0; i <= sentences.length - 1; i++){
             System.out.println(sentences[i]);
             for(int j = 0; j <= sentences[i].length() - 1; j++){
-                if(sentences[i].charAt(j) != ' '){
+                if(sentences[i].charAt(j) == ' ' || j == sentences[i].length() - 1){
                     count++;
                 }
             }
             total[i] = count;
             count = 0;
         }
-        System.out.println(Arrays.toString(total));
-
-        return count;
+        int max = total[0];
+        for(int k = 1; k < total.length; k++){
+            if(total[k] > max){
+                max = total[k];
+            }
+        }
+        return max;
     }
 }
