@@ -19,10 +19,14 @@ public class App {
 
         Thread anotherThread = new Thread(runnable, "My-Runnable-1");
 
+        //Thread lambda runnable
+        Thread lambdaRunnable = new Thread(() -> System.out.println("Performed lambda Thread: "
+        + Thread.currentThread().getName()), "My-LambaRunnable-2");
+
         thread.start();
         secondThread.start();
         anotherThread.start();
-
+        lambdaRunnable.start();
     }
 
 }
