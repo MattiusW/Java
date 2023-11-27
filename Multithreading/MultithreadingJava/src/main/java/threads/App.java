@@ -9,7 +9,13 @@ public class App {
         Thread thread = new MyThread("My Thread-1");
         Thread secondThread = new MyThread("My Thread-2");
 
-        Runnable runnable = new MyRunnable();
+        //Thread strategy pattern. Don't need make separate class
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Performed thread (runnable) " + Thread.currentThread().getName());
+            }
+        };
 
         Thread anotherThread = new Thread(runnable, "My-Runnable-1");
 
