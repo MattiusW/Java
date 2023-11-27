@@ -6,9 +6,11 @@ public class App {
 
         System.out.println("Main thread app: " + Thread.currentThread().getName());
 
-        Thread thread = new MyThread("My thread-1");
+        Thread thread = new MyThread("My Thread-1");
+        Thread secondThread = new MyThread("My Thread-2");
 
         thread.start();
+        secondThread.start();
 
     }
 
