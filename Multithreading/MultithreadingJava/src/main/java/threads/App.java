@@ -6,7 +6,7 @@ public class App {
 
         System.out.println("Main thread app: " + Thread.currentThread().getName());
 
-        Thread thread = new MyThread();
+        Thread thread = new MyThread("My thread-1");
 
         thread.start();
 
