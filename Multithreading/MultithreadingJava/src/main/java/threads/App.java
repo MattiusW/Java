@@ -1,5 +1,7 @@
 package threads;
 
+import java.util.concurrent.TimeUnit;
+
 public class App {
 
     public static void main(String[] args){
@@ -28,7 +30,8 @@ public class App {
                 System.out.println("Thread sleep" +Thread.currentThread().getName());
                 for(int i = 1; i <= 10; i++){
                     System.out.println(i);
-                    Thread.sleep(1000);
+                    //Thread.sleep(1000);
+                    TimeUnit.SECONDS.sleep(1); //New solution sleep method
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
