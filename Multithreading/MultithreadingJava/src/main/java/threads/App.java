@@ -23,10 +23,26 @@ public class App {
         Thread lambdaRunnable = new Thread(() -> System.out.println("Performed lambda Thread: "
         + Thread.currentThread().getName()), "My-LambaRunnable-2");
 
+        Runnable runnableSleep = () -> {
+            try {
+                System.out.println("Thread sleep" +Thread.currentThread().getName());
+                for(int i = 1; i <= 10; i++){
+                    System.out.println(i);
+                    Thread.sleep(1000);
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        };
+
+        Thread runSleep = new Thread(runnableSleep, " Runnable-sleep");
+
         thread.start();
         secondThread.start();
         anotherThread.start();
         lambdaRunnable.start();
+        runSleep.start();
+
     }
 
 }
