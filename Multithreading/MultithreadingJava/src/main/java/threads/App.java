@@ -25,7 +25,7 @@ public class App {
         Thread lambdaRunnable = new Thread(() -> System.out.println("Performed lambda Thread: "
         + Thread.currentThread().getName()), "My-LambaRunnable-2");
 
-        Runnable runnableSleep = () -> {
+        Runnable countdown = () -> {
             try {
                 System.out.println("Thread sleep" +Thread.currentThread().getName());
                 for(int i = 1; i <= 10; i++){
@@ -38,13 +38,29 @@ public class App {
             }
         };
 
-        Thread runSleep = new Thread(runnableSleep, " Runnable-sleep");
+        Thread countdownThread = new Thread(countdown, " countdownThread-sleep");
+
+        Runnable blastOff = () -> {
+            System.out.println("Performed Thread: " + Thread.currentThread().getName());
+            System.out.println("Blast off!");
+        };
+
+        Thread blastOffThread = new Thread(blastOff, "blastOff");
 
         thread.start();
         secondThread.start();
         anotherThread.start();
         lambdaRunnable.start();
-        runSleep.start();
+        countdownThread.start();
+
+        try {
+            //Wait before to run next Thread
+            countdownThread.join(7000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        blastOffThread.start();
 
     }
 
