@@ -1,6 +1,10 @@
 package LeetCode.Arrays;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public class SortMatrix {
 
@@ -13,20 +17,22 @@ public class SortMatrix {
 
     public static int[][] diagonalSort(int[][] mat) {
         int temp = 0;
+        List<Integer> list = new ArrayList<>();
         for (int i = 0; i <= mat.length - 1; i++){
-            for(int j = 1; j < mat[i].length; j++){
-                int[][] newMatrix = new int[mat.length][mat[i].length];
-                for(int k = 0; k < j; k++){
-                    if(mat[i][k] < mat[i][j]){
-                        temp = mat[i][k];
-                        mat[i][j] = mat[i][k];
-                        mat[i][k] = temp;
-                }      
-                }
-                // newMatrix = mat;
-                // System.out.println("New matrix " + Arrays.deepToString(newMatrix));
+            for(int j = 0; j < mat[i].length; j++){
+                list.add(mat[i][j]);
             }
         }
+        Collections.sort(list);
+        System.out.println("List : " + list);
+        int a = 0;
+        for (int k = 0; k <= mat.length - 1; k++){
+            for(int l = 0; l < mat[k].length; l++){
+                mat[k][l] = list.get(a);
+                a++;
+            }
+        }
+
         return mat;
         
     }
