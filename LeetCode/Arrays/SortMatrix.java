@@ -16,7 +16,6 @@ public class SortMatrix {
     }
 
     public static int[][] diagonalSort(int[][] mat) {
-        int temp = 0;
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i <= mat.length - 1; i++){
             for(int j = 0; j < mat[i].length; j++){
@@ -32,9 +31,7 @@ public class SortMatrix {
                 a++;
             }
         }
-
-        return mat;
         
-    }
-    
+        return mat;
+    }   
 }
