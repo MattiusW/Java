@@ -9,7 +9,9 @@ import java.util.List;
 public class SortMatrix {
 
     public static void main(String[] args){
-        int[][] matrix = {{2,3,1,1}, {2,2,1,2}, {1,1,1,2}};
+        int[][] matrix = {{3,3,1,1}, 
+                          {2,2,1,2}, 
+                          {1,1,1,2}};
         System.out.println("Original Matrix: " + Arrays.deepToString(matrix));
         int[][] newMat = diagonalSort(matrix);
         System.out.println(Arrays.deepToString(newMat));
