@@ -12,6 +12,45 @@ public class App {
 
         ExecutorService executor = Executors.newSingleThreadExecutor();
 
+        //Run several thread in this same moment
+        ExecutorService executors = Executors.newFixedThreadPool(2);
+
+        Runnable worker1 = () -> {
+            try {
+                System.out.println("Worker one thread: " + Thread.currentThread().getName());
+                System.out.println(("Im working for computer"));
+                TimeUnit.SECONDS.sleep(10);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        };
+
+        Runnable worker2 = () -> {
+            try {
+                System.out.println("Worker two thread: " + Thread.currentThread().getName());
+                System.out.println(("I pick supply"));
+                TimeUnit.SECONDS.sleep(5);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        };
+
+        Runnable worker3 = () -> {
+            try {
+                System.out.println("Worker three thread: " + Thread.currentThread().getName());
+                System.out.println(("Im loading fuel"));
+                TimeUnit.SECONDS.sleep(3);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        };
+
+        executors.submit(worker1);
+        executors.submit(worker2);
+        executors.submit(worker3);
+
+        executors.shutdown();;
+
         Thread thread = new MyThread("My Thread-1");
         Thread secondThread = new MyThread("My Thread-2");
 
