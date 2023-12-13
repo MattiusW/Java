@@ -1,5 +1,7 @@
 package threads;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class App {
@@ -7,6 +9,8 @@ public class App {
     public static void main(String[] args){
 
         System.out.println("Main thread app: " + Thread.currentThread().getName());
+
+        ExecutorService executor = Executors.newSingleThreadExecutor();
 
         Thread thread = new MyThread("My Thread-1");
         Thread secondThread = new MyThread("My Thread-2");
@@ -61,6 +65,12 @@ public class App {
         }
 
         blastOffThread.start();
+
+        executor.submit(countdown);
+        executor.submit(blastOff);
+
+        //Shutdown if thread is end
+        executor.shutdown();
 
     }
 
