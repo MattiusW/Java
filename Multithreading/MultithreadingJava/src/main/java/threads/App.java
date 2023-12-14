@@ -2,6 +2,7 @@ package threads;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class App {
@@ -14,6 +15,9 @@ public class App {
 
         //Run several thread in this same moment
         ExecutorService executors = Executors.newFixedThreadPool(2);
+
+        //Delay thread
+        ScheduledExecutorService executorScheduled = Executors.newScheduledThreadPool(3);
 
         Runnable worker1 = () -> {
             try {
@@ -48,6 +52,9 @@ public class App {
         executors.submit(worker1);
         executors.submit(worker2);
         executors.submit(worker3);
+
+        executorScheduled.schedule(worker1, 20, TimeUnit.SECONDS);
+        executorScheduled.shutdown();
 
         executors.shutdown();;
 
