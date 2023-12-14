@@ -29,12 +29,17 @@ public class TheKWeakestRow {
         
         System.out.println(Arrays.toString(result));
         
-        Arrays.sort(result);
-
-        for(int w = 1; w < result.length; w++){
-           for(int m = 0; m < w; m++){
-            System.out.println(m);
-           }
+         for(int i = 0; i < mat.length; i++){
+            int index = 0;
+            int min = result[0];
+            for(int j = 1; j < result.length; j++){
+                if(result[j] < min){
+                    min = result[j];
+                    index = j;
+                }
+            }
+            weak[i] = index;
+            result[index] = mat[0].length + 1;
         }
 
         return weak;
