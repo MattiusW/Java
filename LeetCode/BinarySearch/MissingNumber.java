@@ -1,6 +1,6 @@
 public class MissingNumber {
     public static void main(String[] args) {
-        int[] nums = {3,0,1,2,4,5,8,9};
+        int[] nums = {1};
         System.out.println(missingNumber(nums));
     }
 
@@ -12,6 +12,15 @@ public class MissingNumber {
             if(count != nums[i - 1]){
                 miss = count;
             }
+
+            if(count == nums.length - 1 && miss == 0){
+                miss = (nums.length - 1) + 1;
+            }
+
+            if(nums.length == 1){
+                miss = 0;
+            }
+
             count++;
         }
         return miss;
